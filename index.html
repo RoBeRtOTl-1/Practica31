@@ -1,0 +1,31 @@
+<html>
+	<head>
+		
+	</head>	
+
+	<body align="Center">
+		<h1>On/Off Control</h1>	
+			
+		<input type="button" style="width: 6rem; border-radius: 3rem; background-color: aqua; color:antiquewhite" onClick="switchOn()" value="on"/>
+		<input type="button" style="width: 6rem; border-radius: 3rem; background-color: red; color:antiquewhite" onClick="switchOff()" value="off"/>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		var accessToken = "a645530554d9faa83d798f6c530252052fffdf49";
+		var deviceID = "3f004a000e504b464d323520"
+		var funcion ="led"
+		var url = "https://api.particle.io/v1/devices/" + deviceID + "/"+funcion;
+
+		function switchOn()
+		{
+			$.post(url, {params: "on", access_token: accessToken });
+		}  
+
+		function switchOff()
+		{
+			$.post(url, {params: "off", access_token: accessToken });
+		}  
+
+		</script>
+	</body>
+</html>
